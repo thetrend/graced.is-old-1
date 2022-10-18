@@ -1,5 +1,5 @@
+import GoTrue from 'gotrue-js';
 import { HandlerEvent } from '@netlify/functions';
-import { GraphQLClient } from 'graphql-request';
 
 const urlHelper = (event: HandlerEvent): string => {
   const path = event.path.replace(/\/api\/+/, '');
@@ -8,10 +8,4 @@ const urlHelper = (event: HandlerEvent): string => {
   return endpoint;
 };
 
-const hygraphClient = new GraphQLClient(process.env.HYGRAPH_URL!, {
-  headers: {
-    'Authorization': `Bearer ${process.env.HYGRAPH_PA_TOKEN}`
-  }
-});
-
-export { urlHelper, hygraphClient };
+export { urlHelper };

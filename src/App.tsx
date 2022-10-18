@@ -1,6 +1,5 @@
 import { useEffect } from 'react';
 import './App.css';
-import axios from 'axios';
 
 const App = () => {
   useEffect(() => {
