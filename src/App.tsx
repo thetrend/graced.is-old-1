@@ -7,7 +7,7 @@ const App = () => {
   const { loginWithRedirect, isAuthenticated, isLoading, user, logout } = useAuth0();
   return (
     <div>
-      <img src={blogLogo} style={{maxHeight: '15vh', display: 'block', margin: 'auto'}} />
+      <img src={blogLogo} className="site-logo" />
       {isLoading 
         ? <span>Loading...</span>
         : !isAuthenticated
@@ -20,7 +20,9 @@ const App = () => {
       <br />
       {isAuthenticated && <Link to="/dashboard">Dashboard</Link>}
       {isAuthenticated && <Link to="/">Blog</Link>}
-      <Outlet />
+      <div className="prose lg:prose-xl">
+        <Outlet />
+      </div>
     </div>
   );
 };

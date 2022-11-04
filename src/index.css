@@ -1,8 +1,30 @@
-@import url("https://use.typekit.net/wvn5not.css");
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
-body {
-  font-family: greycliff-cf, sans-serif;
-  font-weight: 300;
-  background: #0a0a0a;
-  color: #fff;
+h1 {
+  @apply text-3xl
+}
+
+h2 {
+  @apply text-2xl
+}
+
+h3 {
+  @apply text-xl
+}
+
+h4 {
+  @apply text-lg
+}
+
+h1,h2,h3,h4,h5 {
+  @apply font-semibold
+}
+
+.site-logo {
+  max-height: 15vh;
+  display: block;
+  margin: auto;
+  @apply mt-2;
 }
