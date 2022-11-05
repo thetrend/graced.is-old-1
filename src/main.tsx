@@ -6,7 +6,9 @@ import App from './App';
 import {
   Blog,
   Dashboard,
-  NotFound
+  NotFound,
+  Page,
+  Post,
 } from './Pages';
 import './index.css';
 
@@ -18,13 +20,20 @@ ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
       redirectUri={window.location.origin}
     >
       <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<App />}>
-          <Route index element={<Blog />} />
-          <Route path="dashboard" element={<Dashboard />} />
-          <Route path="*" element={<NotFound />} />
-        </Route>
-      </Routes>
+        <Routes>
+          <Route path="/" element={<App />}>
+            <Route index element={<Blog />} />
+            <Route path="post/:slug" element={<Post />} />
+            <Route 
+              path="page/:slug"
+              element={<Page />}
+            />
+            <Route path="*" element={<NotFound />} />
+          </Route>
+          <Route path="admin" element={<Dashboard />}>
+            <Route path="*" element={<NotFound />} />
+          </Route>
+        </Routes>
       </BrowserRouter>
     </Auth0Provider>
   </React.StrictMode>
